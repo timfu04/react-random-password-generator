@@ -1,4 +1,4 @@
-import video from '../assets/blue_matrix_4K.webm'
+import video from '../assets/blue_matrix_4K.mp4'
 
 const Home = () => {
     return (
