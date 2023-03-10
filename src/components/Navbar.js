@@ -1,14 +1,12 @@
-import logo from '../assets/logo.svg'
+import logo_icon from '../assets/logo_icon.svg'
 
-const NavBar = () => {
+const Navbar = () => {
     return (
         <div className="navbar">
-            <img src={logo} alt="logo" className="logo" />
+            <img src={logo_icon} alt="logo_icon" className="navbar_logo"/>
             <h1>Random Password Generator</h1>
         </div>
     );
 }
  
-export default NavBar;
-
-
+export default Navbar;
