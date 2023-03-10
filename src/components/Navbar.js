@@ -1,6 +1,6 @@
 import logo from '../assets/logo.svg'
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <div className="navbar">
             <img src={logo} alt="logo" className="logo" />
@@ -9,4 +9,4 @@ const Navbar = () => {
     );
 }
  
-export default Navbar;
+export default NavBar;
