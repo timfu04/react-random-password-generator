@@ -35,14 +35,31 @@ const Home = () => {
                 </div>
 
                 <div className="content_group_3">
-                </div>
 
-                
-                          
+                    <div className="checkbox_label">
+                        <input type="checkbox" className="uppercase_checkbox"/>
+                        <label className="uppercase_label">Uppercase</label>
+                    </div>
+
+                    <div className="checkbox_label">
+                        <input type="checkbox" className="lowercase_checkbox"/>
+                        <label className="lowercase_label">Lowercase</label>
+                    </div>
+                    
+                    <div className="checkbox_label">
+                        <input type="checkbox" className="numbers_checkbox"/>
+                        <label className="number_label">Numbers</label>
+                    </div>
+
+                    <div className="checkbox_label">
+                        <input type="checkbox" className="symbols_checkbox"/>
+                        <label className="symbol_label">Symbols</label>
+                    </div>
+                    
+
+                </div>       
             </div>
-
-
-            
+        
         </div>
     );
 }

@@ -46,20 +46,20 @@
 
 .home .password_generator{
     width: 700px;
-    height: 300px;
+    height: 250px;
     background: rgb(0, 0, 0, 0.35);
     border-radius: 24px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 .home .password_generator label{
     display: inline-block;
-    padding: 5px;
+    padding: 5px 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
     font-weight: 900;
@@ -68,12 +68,13 @@
 
 .home .password_generator .content_group_1{
     display: flex;
-    height: 80px;
+    height: 60px;
     align-items: center;
     background-color: white;
     border-radius: 12px;
     padding: 10px;
     box-sizing: border-box;
+    margin: 0 0 15px 0;
 }
 
 .home .password_generator .content_group_1 .display_box{
@@ -95,15 +96,11 @@
     filter: brightness(0);
 }
 
-
-
-
-
-
 .home .password_generator .content_group_2{
     display: flex;
     height: 30px;
     gap: 50px;
+    margin: 0 0 15px 0;
 }
 
 .home .password_generator .content_group_2 .password_type{
@@ -119,15 +116,48 @@
     flex: 1;
 }
 
+.home .password_generator .content_group_3{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 40px;
+}
 
+.home .password_generator .content_group_3 .checkbox_label{
+    display: flex;
+    align-items: center;
+}
 
+.home .password_generator .content_group_3 .checkbox_label label{
+    font-weight: 100;
+    padding: 0 10px;
+}
 
+.home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    display: grid;
+    place-content: center;
+}
 
+.home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]::before{
+    content: "\2714";
+    transform: scale(0);
+    transition: 100ms transform ease-in-out;
+}
 
+.home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
 
-
-
-
+input[type="checkbox"]:focus {
+    outline: 3.5px solid #0561CB;
+}
 
 
 
