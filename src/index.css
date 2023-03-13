@@ -45,8 +45,8 @@
 }
 
 .home .password_generator{
-    width: 700px;
-    height: 250px;
+    width: 800px;
+    height:300px;
     background: rgb(0, 0, 0, 0.35);
     border-radius: 24px;
     position: absolute;
@@ -61,14 +61,14 @@
     display: inline-block;
     padding: 5px 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 900;
     color: white;
 }
 
 .home .password_generator .content_group_1{
     display: flex;
-    height: 60px;
+    height: 80px;
     align-items: center;
     background-color: white;
     border-radius: 12px;
@@ -82,7 +82,7 @@
 }
 
 .home .password_generator .content_group_1 button{
-    width: 30px;
+    width: 40px;
     height: 50px;
     background-color: transparent;
     border: none;
@@ -92,22 +92,32 @@
 }
 
 .home .password_generator .content_group_1 img{
-    width: 20px;
+    width: 30px;
     filter: brightness(0);
+    cursor: pointer;
 }
 
 .home .password_generator .content_group_2{
     display: flex;
-    height: 30px;
+    height: 50px;
     gap: 50px;
     margin: 0 0 15px 0;
+}
+
+.home .password_generator .content_group_2 select{
+    font-size: 16px;
 }
 
 .home .password_generator .content_group_2 .password_type{
     border-radius: 30px;
     text-align: center;
     flex: 1;
-  
+    cursor: pointer;
+}
+
+.home .password_generator .content_group_2 .password_type:focus{
+    border: 1px solid #0561CB;
+    outline: 3px solid #0561CB;
 }
 
 .home .password_generator .content_group_2 .slider{
@@ -129,7 +139,7 @@
 }
 
 .home .password_generator .content_group_3 .checkbox_label label{
-    font-weight: 100;
+    font-weight: 600;
     padding: 0 10px;
 }
 
@@ -138,8 +148,8 @@
     -moz-appearance: none;
     appearance: none;
     background-color: white;
-    width: 22px;
-    height: 22px;
+    width: 30px;
+    height: 30px;
     border-radius: 5px;
     display: grid;
     place-content: center;
@@ -147,6 +157,7 @@
 
 .home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]::before{
     content: "\2714";
+    font-size: 1.5em;
     transform: scale(0);
     transition: 100ms transform ease-in-out;
 }
@@ -155,9 +166,12 @@
     transform: scale(1);
 }
 
-input[type="checkbox"]:focus {
+.home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]:focus {
     outline: 3.5px solid #0561CB;
 }
 
+.home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]:hover {
+    cursor: pointer;
+}
 
 
