@@ -113,6 +113,8 @@
     text-align: center;
     flex: 1;
     cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }
 
 .home .password_generator .content_group_2 .password_type:focus{
@@ -120,11 +122,32 @@
     outline: 3px solid #0561CB;
 }
 
-.home .password_generator .content_group_2 .slider{
+.home .password_generator .content_group_2 .slider_container{
     background-color: white;
     border-radius: 30px;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.home .password_generator .content_group_2 .slider_container .slider_content{
+    display: flex;
+    gap: 10px;
+}
+
+.home .password_generator .content_group_2 .slider_container .slider_content label{
+    color: black;
+    font-weight: 600;
+}
+
+.home .password_generator .content_group_2 .slider_container .slider_content .slider{
+    width: 200px;
+    cursor: pointer;
+}
+
+
+
 
 .home .password_generator .content_group_3{
     display: flex;

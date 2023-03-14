@@ -6,14 +6,12 @@ import useGenerate from './useGenerate'
 
 const Home = () => {
 
-    useGenerate();
-
     const [passwordType, setPasswordType] = useState("Password");
-
-    const [isUppercase, setIsUppercase] = useState(false);
-    const [isLowercase, setIsLowercase] = useState(false);
+    const [sliderValue, setSliderValue] = useState(8);
     const [isNumbers, setIsNumbers] = useState(false);
     const [isSymbols, setIsSymbols] = useState(false);
+
+    const generatedPassword = useGenerate(passwordType, isNumbers, isSymbols, sliderValue);
 
     return (
         <div className="home">
@@ -25,7 +23,7 @@ const Home = () => {
                 <label className="generated_label">Generated password:</label>
 
                 <div className="content_group_1">
-                    <div className="display_box">this is display box</div>
+                    <div className="display_box">{generatedPassword}</div>
                     <button className="refresh_button">
                         <img src={refresh_icon} alt="refresh_icon" className="refresh_icon"/>
                     </button>
@@ -41,20 +39,17 @@ const Home = () => {
                         <option value="Password">Password</option>
                         <option value="PIN">PIN</option>
                     </select>
-                    <div className="slider">
-                        hello
+
+                    <div className="slider_container">
+                        <div className="slider_content">
+                            <label className="length">Length</label>
+                            <input type="range" min="8" max="50" className='slider' value={sliderValue} onChange={(e) => setSliderValue(e.target.value)}/>
+                            <label className="slider_value">{sliderValue}</label>
+                        </div>
                     </div>
                 </div>
 
                 <div className="content_group_3">
-                    <div className="checkbox_label">
-                        <input type="checkbox" className="uppercase_checkbox" checked={isUppercase} onChange={(e) => setIsUppercase(e.target.checked)}/>
-                        <label className="uppercase_label">Uppercase</label>
-                    </div>
-                    <div className="checkbox_label">
-                        <input type="checkbox" className="lowercase_checkbox" checked={isLowercase} onChange={(e) => setIsLowercase(e.target.checked)}/>
-                        <label className="lowercase_label">Lowercase</label>
-                    </div>
                     <div className="checkbox_label">
                         <input type="checkbox" className="numbers_checkbox" checked={isNumbers} onChange={(e) => setIsNumbers(e.target.checked)}/>
                         <label className="number_label">Numbers</label>
@@ -70,5 +65,3 @@ const Home = () => {
 }
  
 export default Home;
-
-
