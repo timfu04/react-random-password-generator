@@ -1,4 +1,4 @@
-const useGenerate = (passwordType, isNumbers, isSymbols, length) => {
+const Generate = (passwordType, isNumbers, isSymbols, length) => {
 
     const uppercase_alphabets = String.fromCharCode(...Array.from(new Array(26), (_, i) => 65 + i))
     const lowercase_alphabets = String.fromCharCode(...Array.from(new Array(26), (_, i) => 97 + i))
@@ -31,4 +31,4 @@ const useGenerate = (passwordType, isNumbers, isSymbols, length) => {
     return final_password
 }
  
-export default useGenerate;
+export default Generate;

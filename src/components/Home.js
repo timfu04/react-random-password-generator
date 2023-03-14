@@ -2,7 +2,7 @@ import video from '../assets/blue_matrix_4K.mp4'
 import refresh_icon from '../assets/refresh_icon.svg'
 import copy_icon from '../assets/copy_icon.svg'
 import { useState } from 'react'
-import useGenerate from './useGenerate'
+import Generate from './Generate'
 
 const Home = () => {
 
@@ -10,8 +10,10 @@ const Home = () => {
     const [sliderValue, setSliderValue] = useState(8);
     const [isNumbers, setIsNumbers] = useState(false);
     const [isSymbols, setIsSymbols] = useState(false);
+    const [_, setRefresh] = useState(""); // Just to update state and trigger re-render
 
-    const generatedPassword = useGenerate(passwordType, isNumbers, isSymbols, sliderValue);
+    // State changes will re-render this component and rerun this code
+    const generatedPassword = Generate(passwordType, isNumbers, isSymbols, sliderValue);
 
     return (
         <div className="home">
@@ -25,7 +27,8 @@ const Home = () => {
                 <div className="content_group_1">
                     <div className="display_box">{generatedPassword}</div>
                     <button className="refresh_button">
-                        <img src={refresh_icon} alt="refresh_icon" className="refresh_icon"/>
+                        {/* Password generated does not matter, just to update state and trigger re-render */}
+                        <img src={refresh_icon} alt="refresh_icon" className="refresh_icon" onClick={() => {setRefresh(Generate(passwordType, isNumbers, isSymbols, sliderValue))}}/>
                     </button>
                     <button className="copy_button">
                         <img src={copy_icon} alt="copy_icon" className="copy_icon"/>
@@ -35,7 +38,17 @@ const Home = () => {
                 <label className="type_label">Password type:</label>
 
                 <div className="content_group_2">
-                    <select className="password_type" value={passwordType} onChange={(e) => setPasswordType(e.target.value)}>
+                    <select className="password_type" value={passwordType} 
+                    onChange={(e) => 
+                        {
+                            setPasswordType(e.target.value);
+                            {passwordType === "Password" ? ( // "Password" and "PIN" is reversed in this case, because latest value still not updated (still using previous value)
+                                setSliderValue(3) // "PIN" initial length
+                            ) : (
+                                setSliderValue(8) // "Password" initial length
+                            )}
+                        }
+                    }>
                         <option value="Password">Password</option>
                         <option value="PIN">PIN</option>
                     </select>
@@ -43,22 +56,28 @@ const Home = () => {
                     <div className="slider_container">
                         <div className="slider_content">
                             <label className="length">Length</label>
-                            <input type="range" min="8" max="50" className='slider' value={sliderValue} onChange={(e) => setSliderValue(e.target.value)}/>
+                            {passwordType === "Password" ? (
+                                <input type="range" min="8" max="50" className='slider' value={sliderValue} onChange={(e) => setSliderValue(e.target.value)}/>
+                            ) : (
+                                <input type="range" min="3" max="12" className='slider' value={sliderValue} onChange={(e) => setSliderValue(e.target.value)}/>
+                            )}
                             <label className="slider_value">{sliderValue}</label>
                         </div>
                     </div>
                 </div>
-
-                <div className="content_group_3">
-                    <div className="checkbox_label">
-                        <input type="checkbox" className="numbers_checkbox" checked={isNumbers} onChange={(e) => setIsNumbers(e.target.checked)}/>
-                        <label className="number_label">Numbers</label>
+                
+                {passwordType === "Password" && 
+                    <div className="content_group_3">
+                        <div className="checkbox_label">
+                            <input type="checkbox" className="numbers_checkbox" checked={isNumbers} onChange={(e) => setIsNumbers(e.target.checked)}/>
+                            <label className="number_label">Numbers</label>
+                        </div>
+                        <div className="checkbox_label">
+                            <input type="checkbox" className="symbols_checkbox" checked={isSymbols} onChange={(e) => setIsSymbols(e.target.checked)}/>
+                            <label className="symbol_label">Symbols</label>
+                        </div>
                     </div>
-                    <div className="checkbox_label">
-                        <input type="checkbox" className="symbols_checkbox" checked={isSymbols} onChange={(e) => setIsSymbols(e.target.checked)}/>
-                        <label className="symbol_label">Symbols</label>
-                    </div>
-                </div>
+                }
             </div>
         </div>        
     );
