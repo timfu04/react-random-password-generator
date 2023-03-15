@@ -46,9 +46,9 @@
 
 .home .toast_position{
     text-align: center;
-    font-size: 16px;
     top: 15%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 900;
 }
 
 .home .password_generator{
@@ -145,6 +145,7 @@
 .home .password_generator .content_group_2 .slider_container .slider_content{
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 .home .password_generator .content_group_2 .slider_container .slider_content label{
@@ -153,12 +154,45 @@
 }
 
 .home .password_generator .content_group_2 .slider_container .slider_content .slider{
-    width: 200px;
     cursor: pointer;
+    width: 15rem;
 }
 
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    height: 8px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
 
-
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+  
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #0561CB;
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 100px;
+}
+  
+.slider::-moz-range-thumb {
+width: 25px; /* Set a specific slider handle width */
+height: 25px; /* Slider handle height */
+background: #0561CB;
+cursor: pointer; /* Cursor on hover */
+border-radius: 100px;
+}
 
 .home .password_generator .content_group_3{
     display: flex;
@@ -206,6 +240,22 @@
 
 .home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]:hover {
     cursor: pointer;
+}
+
+.refresh_icon{
+    transition: .5s;
+}
+
+.refresh_icon:hover{
+    transform: rotate(180deg);
+}
+
+.copy_icon{
+    transform: .1s;
+}
+
+.copy_icon:hover{
+    transform: scale(1.1);
 }
 
 

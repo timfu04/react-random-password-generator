@@ -23,10 +23,9 @@ const Home = () => {
         toast.success('Password copied', {
             toastId: customId,
             position: "top-center",
-            autoClose: 1000,
+            autoClose: 1500,
             hideProgressBar: false,
             closeOnClick: true,
-            pauseOnHover: true,
             draggable: true,
             progress: undefined,
             theme: "colored",
