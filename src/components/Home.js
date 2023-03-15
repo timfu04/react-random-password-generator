@@ -1,8 +1,11 @@
-import video from '../assets/blue_matrix_4K.mp4'
-import refresh_icon from '../assets/refresh_icon.svg'
-import copy_icon from '../assets/copy_icon.svg'
-import { useState } from 'react'
-import Generate from './Generate'
+import video from '../assets/blue_matrix_4K.mp4';
+import refresh_icon from '../assets/refresh_icon.svg';
+import copy_icon from '../assets/copy_icon.svg';
+import { useState } from 'react';
+import Generate from './Generate';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
 
@@ -11,9 +14,24 @@ const Home = () => {
     const [isNumbers, setIsNumbers] = useState(false);
     const [isSymbols, setIsSymbols] = useState(false);
     const [_, setRefresh] = useState(""); // Just to update state and trigger re-render
+    const customId = 201311483163; // this ID is randomly generated (prevent duplicated toast notification)
 
     // State changes will re-render this component and rerun this code
     const generatedPassword = Generate(passwordType, isNumbers, isSymbols, sliderValue);
+
+    const notify = () => {
+        toast.success('Password copied', {
+            toastId: customId,
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+        });  
+    }
 
     return (
         <div className="home">
@@ -30,9 +48,11 @@ const Home = () => {
                         {/* Password generated does not matter, just to update state and trigger re-render */}
                         <img src={refresh_icon} alt="refresh_icon" className="refresh_icon" onClick={() => {setRefresh(Generate(passwordType, isNumbers, isSymbols, sliderValue))}}/>
                     </button>
-                    <button className="copy_button">
-                        <img src={copy_icon} alt="copy_icon" className="copy_icon"/>
-                    </button>
+                    <CopyToClipboard text={generatedPassword}>
+                        <button className="copy_button">
+                            <img src={copy_icon} alt="copy_icon" className="copy_icon" onClick={notify}/>
+                        </button>
+                    </CopyToClipboard>
                 </div>
 
                 <label className="type_label">Password type:</label>
@@ -79,6 +99,7 @@ const Home = () => {
                     </div>
                 }
             </div>
+            <ToastContainer className="toast_position"/>
         </div>        
     );
 }
