@@ -1,16 +1,15 @@
+/* CSS reset */
 *{
     margin: 0;
     padding: 0;
-    font-family: monospace;
 }
 
-/* navigation bar */
 .navbar{
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
+    padding: 15px 0;
     z-index: 1;
     background: rgb(0, 0, 0, 0.35);
     width: 100%;
@@ -18,14 +17,16 @@
 
 .navbar .navbar_logo{
     width: 50px;
+    /* Set font to white color */
     filter: brightness(0) invert(1);
 }
 
 .navbar h1{
     color: white;
+    padding: 0 10px;
     font-size: 28px;
     font-weight: 900;
-    padding: 0 10px;
+    font-family: monospace;
 }
 
 .home{
@@ -41,24 +42,29 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Set display to block to remove horizontal line at most bottom */
     display: block;
 }
 
 .home .toast_position{
     text-align: center;
     top: 15%;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 900;
 }
 
 .home .password_generator{
     width: 800px;
     height:300px;
+    /* Black color with 0.35 opactiy */
     background: rgb(0, 0, 0, 0.35);
     border-radius: 24px;
     position: absolute;
+    /* Push down 50% from the top */
     top: 50%;
+    /* Push right 50% from the left */
     left: 50%;
+    /* Move the distance of half of the width on x-axis, move the distance of half of the height in y-axis */
     transform: translate(-50%, -50%);
     padding: 10px;
     box-sizing: border-box;
@@ -89,7 +95,9 @@
     box-sizing: border-box;
     padding: 10px;
     font-size: 20px;
+    font-family: monospace;
     text-align: center;
+    min-width: 0;
 }
 
 .home .password_generator .content_group_1 button{
@@ -106,6 +114,22 @@
     width: 30px;
     filter: brightness(0);
     cursor: pointer;
+}
+
+.home .password_generator .content_group_1 .refresh_icon{
+    transition: .5s;
+}
+
+.home .password_generator .content_group_1 .refresh_icon:hover{
+    transform: rotate(180deg);
+}
+
+.home .password_generator .content_group_1 .copy_icon{
+    transform: .1s;
+}
+
+.home .password_generator .content_group_1 .copy_icon:hover{
+    transform: scale(1.1);
 }
 
 .home .password_generator .content_group_2{
@@ -153,16 +177,12 @@
     font-weight: 600;
 }
 
-.home .password_generator .content_group_2 .slider_container .slider_content .slider{
+.home .password_generator .content_group_2 .slider_container .slider_content .slider {
     cursor: pointer;
-    width: 15rem;
-}
-
-/* The slider itself */
-.slider {
+    width: 12rem;
     -webkit-appearance: none;  /* Override default CSS styles */
     appearance: none;
-    height: 8px; /* Specified height */
+    height: 8px;
     background: #d3d3d3; /* Grey background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
@@ -171,12 +191,12 @@
 }
 
 /* Mouse-over effects */
-.slider:hover {
+.home .password_generator .content_group_2 .slider_container .slider_content .slider:hover {
     opacity: 1; /* Fully shown on mouse-over */
 }
   
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-.slider::-webkit-slider-thumb {
+.home .password_generator .content_group_2 .slider_container .slider_content .slider::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
@@ -186,12 +206,12 @@
     border-radius: 100px;
 }
   
-.slider::-moz-range-thumb {
-width: 25px; /* Set a specific slider handle width */
-height: 25px; /* Slider handle height */
-background: #0561CB;
-cursor: pointer; /* Cursor on hover */
-border-radius: 100px;
+.home .password_generator .content_group_2 .slider_container .slider_content .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #0561CB;
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 100px;
 }
 
 .home .password_generator .content_group_3{
@@ -242,20 +262,71 @@ border-radius: 100px;
     cursor: pointer;
 }
 
-.refresh_icon{
-    transition: .5s;
-}
+@media screen and (max-width: 560px){
 
-.refresh_icon:hover{
-    transform: rotate(180deg);
-}
+    .navbar .navbar_logo{
+        width: 30px;
+    }
 
-.copy_icon{
-    transform: .1s;
-}
+    .navbar h1{
+        font-size: 18px;
+    }
 
-.copy_icon:hover{
-    transform: scale(1.1);
+    .home .password_generator{
+        width: 340px;
+        height: 300px;
+    }
+
+    .home .password_generator label{
+        font-size: 14px;
+    }
+
+    .home .password_generator .content_group_1{
+        height: 50px;
+    }
+
+    .home .password_generator .content_group_1 .display_box{
+        font-size: 14px;
+        
+    }
+
+    .home .password_generator .content_group_1 button{
+        width: 24px;
+        height: 30px;
+    }
+    
+    .home .password_generator .content_group_1 img{
+        width: 18px;
+    }
+
+    .home .password_generator .content_group_2{
+        flex-direction: column;
+        height: 100px;
+        gap: 40px;
+        margin: 0 0 20px 0;
+    }
+
+    .home .password_generator .content_group_2 select{
+        font-size: 14px;
+    }
+
+    .home .password_generator .content_group_2 .slider_container .slider_content .slider {
+        height: 5px;
+    }
+
+    .home .password_generator .content_group_2 .slider_container .slider_content .slider::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+      
+    .home .password_generator .content_group_2 .slider_container .slider_content .slider::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    .home .password_generator .content_group_3 .checkbox_label input[type="checkbox"]::before{
+        font-size: 1.2em;
+    }
 }
 
 

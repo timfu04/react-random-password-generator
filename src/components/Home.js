@@ -1,9 +1,12 @@
+
 import video from '../assets/blue_matrix_4K.mp4';
 import refresh_icon from '../assets/refresh_icon.svg';
 import copy_icon from '../assets/copy_icon.svg';
 import { useState } from 'react';
 import Generate from './Generate';
+// React copy to clipboard
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+// React Toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,17 +16,17 @@ const Home = () => {
     const [sliderValue, setSliderValue] = useState(8);
     const [isNumbers, setIsNumbers] = useState(false);
     const [isSymbols, setIsSymbols] = useState(false);
-    const [_, setRefresh] = useState(""); // Just to update state and trigger re-render
-    const customId = 201311483163; // this ID is randomly generated (prevent duplicated toast notification)
+    const [_, setRefresh] = useState(""); // Interact with refresh icon (update state and trigger re-render for each on click)
+    const customId = 201311483163; // randomly generated custom id to prevent duplicate toast
 
-    // State changes will re-render this component and rerun this code
+    // State changes will re-render Home component and rerun this code
     const generatedPassword = Generate(passwordType, isNumbers, isSymbols, sliderValue);
 
     const notify = () => {
-        toast.success('Password copied', {
-            toastId: customId,
+        toast.success('Password copied!', {
+            toastId: customId, // provide toast id to prevent duplicate toast
             position: "top-center",
-            autoClose: 1500,
+            autoClose: 1000,
             hideProgressBar: false,
             closeOnClick: true,
             draggable: true,
@@ -34,19 +37,24 @@ const Home = () => {
 
     return (
         <div className="home">
+
+            {/* Video background */}
             <div className="video_bg">
                 <video src={video} autoPlay loop muted></video>
             </div>
 
+            {/* Password generator area */}
             <div className="password_generator">
                 <label className="generated_label">Generated password:</label>
 
                 <div className="content_group_1">
                     <div className="display_box">{generatedPassword}</div>
                     <button className="refresh_button">
-                        {/* Password generated does not matter, just to update state and trigger re-render */}
+                        {/* Password generated here does not matter, just to update state and trigger re-render */}
                         <img src={refresh_icon} alt="refresh_icon" className="refresh_icon" onClick={() => {setRefresh(Generate(passwordType, isNumbers, isSymbols, sliderValue))}}/>
                     </button>
+
+                    {/* Wrap button inside "CopyToClipboard" to enable copy to clipboard function */}
                     <CopyToClipboard text={generatedPassword}>
                         <button className="copy_button">
                             <img src={copy_icon} alt="copy_icon" className="copy_icon" onClick={notify}/>
@@ -104,3 +112,5 @@ const Home = () => {
 }
  
 export default Home;
+
+
