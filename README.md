@@ -1,15 +1,19 @@
 # __Random Password Generator__
 - A responsive web application that provides an user interface to random generate strong and secure passwords.
 
-    ![desktop_view](https://user-images.githubusercontent.com/70854339/226555693-fb059b0b-886b-486f-948f-1f61c184c6f6.png)
-*<center>Desktop view</center>*
+<div align="center">
 
-<center>
+![desktop_view](https://user-images.githubusercontent.com/70854339/226555693-fb059b0b-886b-486f-948f-1f61c184c6f6.png)
+
+*Desktop view*
 
 ![mobile_view](https://user-images.githubusercontent.com/70854339/226557173-2ce3cba9-2d16-4507-9426-642933ea8f55.png)
-</center>
 
-*<center>Mobile view</center>*
+*Mobile view*
+
+</div>
+
+
 
 # __1. Live Demo__
 - https://random-password-generator-clement-lee.netlify.app
