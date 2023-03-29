@@ -22,14 +22,14 @@
 - Make sure you have __Git__ and __Node.js__ (includes __npm__) installed on your computer to clone and run this application.
 
     ## __1. Clone this repository__
-        $ git clone https://github.com/timfu04/react-random-password-generator.git
+        git clone https://github.com/timfu04/react-random-password-generator.git
 
     ## __2. Go into the repository__
-        $ cd react-random-password-generator
+        cd react-random-password-generator
     ## __3. Install dependencies__
-        $ npm install
+        npm install
 
     ## __4. Run the app__
-        $ npm start
+        npm start
 
 
