@@ -1,5 +1,9 @@
 # __Random Password Generator__
-- A responsive web application that provides an user interface to random generate strong and secure passwords.
+
+## __1. Description__
+- A responsive single-page application (SPA) made in JavaScript, HTML, CSS and the ReactJS framework that provides an user interface to random generate strong and secure passwords.
+
+## __2. Screenshots__
 
 <div align="center">
 
@@ -13,12 +17,17 @@
 
 </div>
 
+## __3. Features__
+- Copy to clipboard
+- Generate password/PIN
+- Manual password/PIN refresh
+- Custom password/PIN length
+- Option to include digits and symbols
 
-
-# __1. Live Demo__
+## __4. Live Demo__
 - https://random-password-generator-clement-lee.netlify.app
 
-# __2. Installation__
+## __5. Installation__
 - Make sure you have __Git__ and __Node.js__ (includes __npm__) installed on your computer to clone and run this application.
 
     ## __1. Clone this repository__
